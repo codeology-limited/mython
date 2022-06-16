@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body
+    {
+      margin:0;
+      padding:0;
+      background:#000000;
+    }
+    p.title {
+       text-align:center;
+    }
+    p.content {
+       text-align:center;
+       color: #ffffff;
+    }
+    a:hover {
+       color: #ffffff;
+    }
+    b.name {
+                font-size: 1em;
+                /* font-family: serif; */
+                color: #fffb2b;
+                text-align: center;
+                animation: a 
+                    5.00s linear infinite;
+            }
+      
+            @keyframes a {
+                0% {
+                    opacity: 0;
+                }
+      
+                50% {
+                    opacity: 1;
+                }
+      
+                100% {
+                    opacity: 0;
+                }
+            }
+    h2.link{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align:center;
+    }
+      h2.link a {  
+        display: block;
+        overflow:hidden;
+        width:290px;
+        height:90px;
+
+      }
+
+    h2.link a img {
+
+ margin-top:-5px;
+ margin-left: -5px;
+    }
+    a:link{text-decoration:none ; color:rgb(255, 255, 255);}
+    a:visited {text-decoration:none ; color:rgb(255, 255, 255);}
+    a:hover {text-decoration:underline ; color:rgb(252, 252, 255);}
+    a:active {text-decoration:none ; color:rgb(255, 255, 255);} 
+</style>
+
+</head>
+
+<body>
+  <h1><p class="title"><img src= "/assets/images/logo2.png" width="300px" height="90px" /></p></h1>
+    <div id="content" style="display:none">
+        <h2><p class="content"><b>Click image below to the App store</b></p></h2>
+       <h2 class="link"><a href="https://apps.apple.com/nz/app/forsite/id1066680170">
+        <img src="/assets/images/IOS.png" alt="IOSlink"
+        width="300px" height="100px">
+     </a></h2>
+     </div>
+</body>
+</html>
+    
+<script>
+try {
+   //  document.location.href='intent:#Intent;action=my_action;end'; /// < need to modify this to suit our app
+      window.location.href='YockApp://';
+
+      if(window.location.href != 'YockApp://'){
+        setTimeout(function () { 
+       document.getElementById("content").style.display="block";
+       }, 5000);
+      }
+      /// < need to modify this to suit our app>
+ } catch(err){
+    
+ } finally {
+ }
+ 
+</script>
