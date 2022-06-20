@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #
 # env = environ.Env(
 #     # set casting, default value
-#     DATABASE_URL=(str, 'postgres://jbday:fxe_qud.zkx1HAJ3dva@//cloudsql/identify-api:australia-southeast1:js-bday-prod/jetstar-bday')
+#     DATABASE_URL=(str, 'postgres:// y')
 # )
 
 # Attempt to load the Project ID into the environment, safely failing on error.
@@ -51,7 +51,7 @@ if os.path.isfile(env_file):
 
 
 
-SECRET_KEY = '876trdcvbnmko987654waszxcvbnko98765433456yujhgfesdcfgbhn'
+SECRET_KEY = 'abc'
 CLOUD_CHECK_KEY = ''
 CLOUD_CHECK_SECRET= ''
 
@@ -175,14 +175,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_ROOT = os.path.join(BASE_DIR, 'jetstar', 'static')
+STATIC_URL = 'services/nginx/public/'
+STATIC_ROOT = os.path.join('services/nginx/', 'public')
 
 
 
-
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'jetstar/media'), ]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, '???/media'), ]
 
 # MEDIA FILES
 # Store uploads, etc
