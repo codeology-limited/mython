@@ -19,4 +19,5 @@ class MainView(View):
         # person = People(first_name='Start',last_name='now',email='email', cloudcheck=True)
         # person.save()
 
-        return render(request, 'jetstar/index.html', context)
+        #return render(request, 'index.html', context)
+        return JsonResponse({}, status=200)

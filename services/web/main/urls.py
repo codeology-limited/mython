@@ -1,4 +1,4 @@
-"""identity_api URL Configuration
+"""main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 from .views import MainView
 
 urlpatterns = [
-    path('/', MainView.as_view()),
+    path('', MainView.as_view()),
 ]
 
 if settings.DEBUG:

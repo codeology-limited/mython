@@ -7,7 +7,7 @@ services:
       - ./local/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./data/db:/var/lib/postgresql/data
     ports:
-      - 15432:5432
+      - 5432
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -15,11 +15,10 @@ services:
   web:
     build: services/web
     command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
-    ports:
-      - "8010:8000"
+#    volumes:
+#      - .:/app
     environment:
+      - PROJECT_ID=mython
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -28,8 +27,8 @@ services:
   nginx:
     build: services/nginx
     ports:
-      - 80:80
-      - 443:443
+      - 80
+      - 443
     depends_on:
       - db
       - web

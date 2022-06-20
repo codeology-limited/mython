@@ -2,7 +2,7 @@ SHELL := /bin/bash
 DIRECTORIES:= $(subst /, ,$(subst services/, ,${sort $(dir ${wildcard services/*/})}))
 .SILENT:
 
-export COMPOSE_PROJECT_NAME:= MYTHON
+export COMPOSE_PROJECT_NAME:=mython
 export REPO_NAME:= $(lastword $(subst /, , ${shell git config --get remote.origin.url}))
 export BRANCH_NAME:=$(subst /,-,${shell git rev-parse --abbrev-ref HEAD})
 export COMMIT:=${shell git rev-parse --short HEAD}
@@ -39,7 +39,6 @@ down: ## Stand down the project.
 # Maintenance and debug
 #
 clean:  ## clear the app locally.  This is destructive. You will need to rebuild.
-	docker context use development
 	-rm *.log
 	-docker compose -f docker-compose.yaml kill
 	-docker rmi -f $$(docker images --filter='reference=*$(REPO_NAME)*:$(BRANCH_NAME)' -a -q)
